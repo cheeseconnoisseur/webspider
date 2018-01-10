@@ -4,8 +4,17 @@ import string
 import urllib.request
 import bs4 as bs
 import requests
-url = 'http://arturodezon.me/'
-alllinks = ['http://www.bbc.co.uk/news','http://www.bbc.co.uk/news']
+inp = input("enter site: www.blahdiblah.com###example:http://www.businessinsider.com/flashback-this-is-what-the-first-website-ever-looked-like-2011-6 ## type bi for latter example   ")
+
+if inp == 'bi':
+    inp = 'http://www.businessinsider.com/flashback-this-is-what-the-first-website-ever-looked-like-2011-6'
+elif not inp.startswith('http'):
+        inp = ('https://' + inp)
+url = inp
+alllinks = []
+alllinks.append(url)
+alllinks.append(inp)
+#alllinks = ['http://www.bbc.co.uk/news','http://www.bbc.co.uk/news']
 n = 0
 
 
@@ -79,35 +88,5 @@ main()
 #end = page.index( '</p>', start )
 #s = page[start:end]
 
-#links = [locallinks(url, link) for link in links]
-
-
-##def readpage():
-##    global n
-##    n = n + 1
-##    if n == 1:
-##        url = alllinks[n]
-##        #url = url[6]
-##        print(url)
-##        page = requests.get(url)
-##        #page = page.read()
-##        soup = bs.BeautifulSoup(page.text, 'lxml')
-##        body = soup.body
-##        links = [link.get('href') for link in body.find_all('a')]
-##        links = [str(link.encode("ascii")) for link in links]
-##        links = [link.replace('b\'','') for link in links]
-##        return links
-##    else:
-##        url = alllinks[n]
-##        #url = url[n]
-##        print(url)
-##        page = requests.get(url)
-##        #page = page.read()
-##        soup = bs.BeautifulSoup(page.text, 'lxml')
-##        body = soup.body
-##        links = [link.get('href') for link in body.find_all('a')]
-##        links = [str(link.encode("ascii")) for link in links]
-##        links = [link.replace('b\'','') for link in links]
-##        return links
-
+#links = [locallinks(url, link) for link in links]it
 
